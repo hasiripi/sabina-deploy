@@ -5,6 +5,8 @@
 // girdilerinin <lastmod> degerini verilen tarihe ceker; <lastmod> alani
 // olmayan girdilere ekler. Sonucu stdout'a yazar.
 //
+// Gereksinim: Node 18 veya uzeri (global fetch kullanir).
+//
 // Kullanim (internetin oldugu bir makinede, ornegin kendi Mac'inizde):
 //   node update-sitemap-lastmod.mjs                     > sitemap.xml   # bugunun tarihi
 //   node update-sitemap-lastmod.mjs 2026-07-06          > sitemap.xml   # verilen tarih
@@ -15,13 +17,23 @@
 
 import { readFile } from 'node:fs/promises';
 
+if (typeof fetch !== 'function') {
+  console.error('Bu script Node 18 veya uzeri gerektirir (global fetch bulunamadi).');
+  process.exit(1);
+}
+
 const DEFAULT_SOURCE = 'https://sabinamalikova.com/sitemap.xml';
 
 const date = process.argv[2] ?? new Date().toISOString().slice(0, 10);
 const source = process.argv[3] ?? DEFAULT_SOURCE;
 
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-  console.error(`Gecersiz tarih: "${date}" (beklenen bicim: YYYY-MM-DD)`);
+const parsed = new Date(`${date}T00:00:00Z`);
+if (
+  !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+  Number.isNaN(parsed.getTime()) ||
+  parsed.toISOString().slice(0, 10) !== date
+) {
+  console.error(`Gecersiz tarih: "${date}" (beklenen bicim: YYYY-MM-DD, gecerli bir takvim gunu)`);
   process.exit(1);
 }
 

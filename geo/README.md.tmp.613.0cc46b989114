@@ -63,38 +63,29 @@ Onemli baglam:
    `node geo/scripts/update-sitemap-lastmod.mjs > sitemap.xml`
 6. Ayni degisiklikleri kaynak repoya da isleyin (`public/sources.json`,
    `public/llms.txt`, `public/llms-full.txt`, `public/.well-known/ai.txt`,
-   `public/robots.txt`, `public/sitemap.xml`) — yoksa bir sonraki build
-   canli dosyalari eski surumle ezer.
+   `public/robots.txt`, `public/sitemap.xml`) — yoksa bir sonraki build canli
+   dosyalari eski surumle ezer.
 7. `openpr-duzeltme-taslagi.md` metnini kontrol edip OpenPR'da yayinlayin.
 
 ## Dogrulama komutlari (deploy sonrasi, internetli makineden)
 
 ```bash
 # Launch tense + deprecated referans kontrolu
-# BEKLENEN: yalniz "was formally launched" satiri gorunmeli.
-# "will be formally", "University of Chester" veya "Gulf" gorunuyorsa REGRESYON var.
 curl -sSL https://sabinamalikova.com/methodology | rg -n 'will be formally|was formally launched|University of Chester|Gulf'
 
 # Link discovery header (SSR sayfasi)
-# BEKLENEN: "link:" satirinda llms.txt / llms-full.txt / ai.txt gorunmeli.
 curl -sSI https://sabinamalikova.com/methodology | rg -i 'link:|x-ssr-type|cache-control'
 
 # Link discovery header (ana sayfa - .htaccess blogu)
-# BEKLENEN: ayni "link:" header'i ana sayfada da gorunmeli (adim 2 yapildiysa).
 curl -sSI https://sabinamalikova.com/ | rg -i 'link:'
 
 # Guardrails + sources.json linki
-# BEKLENEN: "Deprecated / Do Not Use" bolumu ve sources.json linki gorunmeli.
-# "University of Chester" ve "Gulf" YALNIZCA Deprecated blogu icindeki
-# "do not cite" satirlarinda gorunmeli; baska yerde gorunuyorsa sorun var.
 curl -sSL https://sabinamalikova.com/llms.txt | rg -n 'Deprecated|Do Not Use|University of Chester|Gulf|studio post-occupancy|sources.json'
 
 # Claims manifesti yayinda mi + JSON gecerli mi
-# BEKLENEN: "sources.json OK" ciktisi.
 curl -sSL https://sabinamalikova.com/sources.json | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{JSON.parse(d);console.log('sources.json OK')})"
 
 # Sitemap lastmod
-# BEKLENEN: tum satirlarda deploy gunu tarihi (orn. 2026-07-06) gorunmeli.
 curl -sSL https://sabinamalikova.com/sitemap.xml | rg -n 'lastmod' | head
 ```
 

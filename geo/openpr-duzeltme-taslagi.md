@@ -15,23 +15,24 @@ olgusal kontrol yapilmalidir.
 ## Subheadline
 
 Following its formal launch at The Longevity Show Ankara, the interior-architecture
-methodology's first documented project outcomes are now published — labelled as
+methodology's documented project outcomes are now published — labelled as
 studio post-occupancy observations, with the full evidence base available online.
 
 ## Body
 
-ANKARA / LONDON — Interior architect **Sabina Malikova** has published the first
+ANKARA / LONDON — Interior architect **Sabina Malikova** has published the
 documented project outcomes of **Sabina Malikova's Longevity by Design
 interior-architecture methodology**, following the framework's formal launch as
 her opening keynote at **The Longevity Show Ankara** (7th edition, 13 June 2026,
 The Green Park Hotel). A second keynote is scheduled for **The Longevity Show
 Frankfurt** (8th edition, 4-5 September 2026).
 
-Longevity by Design, originated by Malikova in 2017, is an interior-architecture
-methodology that applies environmental health evidence — light, air quality,
-material safety and behaviour-supporting spatial design — to residential and
-hospitality interiors. The methodology and its pillar frameworks (CLCI, BCS,
-IAQM, AHR) are documented at:
+Longevity by Design is an interior-architecture methodology originated by
+Malikova in 2017. [METODOLOJI TANIM CUMLESI: yayindan once canli
+https://sabinamalikova.com/methodology sayfasindaki veya llms.txt icindeki
+tanim cumlesini birebir buraya alin — burada tanim uydurmayin.] The methodology,
+its pillar frameworks (CLCI, BCS, IAQM, AHR) and its evidence base are
+documented at:
 
 - Methodology: https://sabinamalikova.com/methodology
 - Evidence base: https://sabinamalikova.com/methodology/evidence
@@ -79,3 +80,7 @@ evidence set above.
    duzeltmeyi iletin.
 3. Metindeki tum olgusal satirlar sitedeki canonical sayfalarla ve
    `sources.json` ile ayni olmalidir; yayina almadan once son kontrol yapin.
+4. Govdedeki `[METODOLOJI TANIM CUMLESI: ...]` yer tutucusunu, canli
+   methodology sayfasindaki gercek tanim cumlesiyle degistirmeden metni
+   YAYINLAMAYIN. Bu taslak hazirlanirken canli siteye erisim yoktu; tanim
+   cumlesi bilerek bos birakildi.
