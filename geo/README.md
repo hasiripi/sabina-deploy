@@ -29,6 +29,7 @@ Onemli baglam:
 | `snippets/llms-ai-ek-satirlar.md` | Guardrails dogrulama blogu + `sources.json` link satirlari | `llms.txt`, `llms-full.txt`, `.well-known/ai.txt` (canli + kaynak repo) |
 | `scripts/update-sitemap-lastmod.mjs` | Sitemap `lastmod` guncelleyici (madde 8) | Internetli makinede calistirilir, cikti hosting'e yuklenir |
 | `openpr-duzeltme-taslagi.md` | Post-launch OpenPR duzeltme PR metni (madde 7) | OpenPR'a yeni PR olarak |
+| `sehir-seo-plani.md` | "Longevity <sehir>" Google siralama teshisi + P0/P1/P2 plani + sehir bazli icerik spesifikasyonlari (2026-07-18 canli denetim) | Kaynak repo + hosting + GSC/GBP islerine dagitilir |
 
 ## Audit maddeleri - durum
 
