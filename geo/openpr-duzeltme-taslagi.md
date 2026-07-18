@@ -1,5 +1,35 @@
 # OpenPR Post-Launch Duzeltme PR'i - Taslak (2026-07-06)
 
+## Dis kaynak durumu (canli kontrol: 2026-07-18)
+
+1. **OpenPR eski pre-launch bulten HALA YAYINDA** (yayin: 2026-05-26):
+   https://www.openpr.com/news/4525093/sabina-malikova-to-launch-longevity-by-design-methodology-at
+   Icerigi audit'in isaretledigi TUM deprecated ogeleri tasiyor:
+   - "to Launch" pre-launch dili
+   - "MFI University of Chester 2015" egitim satiri (2 yerde)
+   - Eski kaynak seti: "Harvard Medical School (2023) +23%", "Stanford
+     University (2022) cortisol -15%"
+   - "Featured in Gulf Longevity Magazine (Issue 12, Spring 2024)"
+   → Aksiyon: OpenPR'a duzeltme/guncelleme talebi + asagidaki post-launch
+   metnin yayini.
+
+2. **EIN Presswire YENI post-launch bulten yayinda** (yayin: 2026-07-15) ve TEMIZ:
+   https://www.einpresswire.com/article/924473681/longevity-by-design-methodology-launched-by-interior-architect-sabina-malikova
+   - Baslik gecmis zaman ("Launched"), Chester/MFI/Gulf/Harvard/Stanford YOK,
+     egitim satiri Bilkent-only, guncel kaynak seti (Figueiro RCT vb.),
+     sabinamalikova.com linkleri var.
+   - Tek eksik: P2 outcome etiketi ("studio post-occupancy project
+     observations, not peer-reviewed clinical trial results") kullanilmamis.
+     Gelecek bultenlerde eklenmeli.
+
+3. **WorldHealth forum konusu** eski OpenPR bultenine link veriyor
+   (baslik hala "to Launch"):
+   https://forum.worldhealth.net/community/discussion/sabina-malikova-to-launch-longevity-by-design-methodology-at-openpr-com/
+   Govdesi kisa notr bir snippet; Chester/Harvard icerigi yok ama okuyucuyu
+   eski OpenPR sayfasina yonlendiriyor. OpenPR duzeltilince risk azalir;
+   istege bagli olarak thread'e EIN bulteni linkiyle guncelleme yaniti
+   eklenebilir.
+
 Audit madde 7: OpenPR'daki pre-launch metin ("to Launch...") eski kaldi;
 eski education line (University of Chester / MFI) ve eski Harvard/Stanford
 kaynak satirlari da orada gorunuyor. Asagidaki metin, OpenPR'a yeni bir
