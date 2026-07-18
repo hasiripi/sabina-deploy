@@ -34,9 +34,9 @@ Onemli baglam:
 
 | # | Madde | Durum |
 |---|---|---|
-| 1 | `ssr.php` methodology `noscript` launch tense fix (P0) | ✅ Kaynak repoda uygulandi (audit "Bu Turda Uygulanan Duzeltmeler") |
-| 2 | `llms.txt` / `llms-full.txt` / `ai.txt` deprecated claims bolumu (P0) | ✅ Kaynak repoda uygulandi; dogrulama blogu: `snippets/llms-ai-ek-satirlar.md` |
-| 3 | `Link` discovery header (P1) | ✅ SSR sayfalari icin kaynak repoda uygulandi. Ana sayfa/statik icin: `snippets/htaccess-geo-blok.conf` → canli `.htaccess`'e ekleyin |
+| 1 | `ssr.php` methodology `noscript` launch tense fix (P0) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: `/methodology` hala "will be formally launched" diyor) — kaynak repodan build alip deploy edin |
+| 2 | `llms.txt` / `llms-full.txt` / `ai.txt` deprecated claims bolumu (P0) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: canli dosyalar hala `Updated: 2026-07-02`, guardrails bolumu yok) — deploy gerekli |
+| 3 | `Link` discovery header (P1) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: ne SSR ne ana sayfa `Link` header'i donduruyor) — deploy + `snippets/htaccess-geo-blok.conf` → canli `.htaccess`'e ekleyin |
 | 4 | Hreflang sadelestirme (`SeoHead.tsx:322-328`) (P1) | ⬜ Kaynak repo isi — kisa vadede sadece `x-default` birakin (audit onerisi 1) |
 | 5 | `sources.json` (P1) | ✅ Bu depoda hazir: `sources.json`. Yukledikten sonra `snippets/llms-ai-ek-satirlar.md`'deki link satirlarini manifest dosyalarina ekleyin |
 | 6 | Marketing docs temizligi (Chester, MFI, pre-launch phrasing) | ⬜ Kaynak repo isi — dosya/satir listesi audit'te ("Icerik Temizligi" bolumu) |
@@ -44,6 +44,24 @@ Onemli baglam:
 | 8 | Sitemap `lastmod` guncelleme | ✅ Arac hazir: `scripts/update-sitemap-lastmod.mjs` (internetli makinede calistirin) |
 | P1 | Methodology `TechArticle` schema'sina `citation`/`isBasedOn` | ⬜ Kaynak repo isi (React/SSR schema uretimi) |
 | P2 | Outcome etiketleme kalibi ("studio post-occupancy project observations, not peer-reviewed clinical trial results") | ⬜ Icerik isi — `sources.json` icinde `outcome_classification` alani olarak sabitlendi; sayfa metinlerinde kaynak repoda uygulanmali |
+
+## Canli dogrulama sonuclari (2026-07-18)
+
+Ag erisimi acildiktan sonra canli site kontrol edildi. Ozet:
+
+- **Canli site hala 2026-07-02 deploy'unda.** Audit'in kaynak repoda uyguladigi
+  duzeltmelerin HICBIRI canliya yansimamis (madde 1-3 tablodaki ⚠️ satirlar).
+  Ilk is: kaynak repodan `npm run build` + deploy.
+- `sitemap.xml`: 49 URL'nin tamami `lastmod: 2026-07-02` — deploy sonrasi
+  `scripts/update-sitemap-lastmod.mjs` ile guncellenmeli.
+- `sources.json`: 404 (henuz yuklenmedi — bu depodaki dosya yuklenmeyi bekliyor).
+- Iyi durumda: news sayfasi dogru (2 Temmuz tarihli, gecmis zaman "launched
+  June 13, 2026"); ana sayfada Chester YOK; JSON-LD 4/8/8/6 blok ve hepsi
+  parse ediliyor; robots.txt genis AI crawler listesiyle canli; Wikidata
+  Q139913205 saglikli.
+- Not: site, `node`/undici default User-Agent'ina 403 donduruyor. Audit'teki
+  JSON-LD test komutuna tarayici User-Agent header'i eklenmeli; curl default
+  UA ile sorun yok.
 
 ## Uygulama sirasi (hosting tarafi)
 
