@@ -1,0 +1,11 @@
+# =====================================================================
+# robots.txt'e EKLENECEK satirlar (2026-07-06)
+# Canli https://sabinamalikova.com/robots.txt dosyasinin SONUNA ekleyin.
+# (Canli robots.txt zaten AI crawler allow listesi iceriyor; onu bozmayin.)
+# =====================================================================
+
+# AI / GEO manifests
+# LLM guidance:               https://sabinamalikova.com/llms.txt
+# Full LLM context:           https://sabinamalikova.com/llms-full.txt
+# AI usage policy:            https://sabinamalikova.com/.well-known/ai.txt
+# Machine-readable claims:    https://sabinamalikova.com/sources.json
