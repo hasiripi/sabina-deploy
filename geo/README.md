@@ -41,7 +41,7 @@ Onemli baglam:
 | 4 | Hreflang sadelestirme (`SeoHead.tsx:322-328`) (P1) | ⬜ Kaynak repo isi — kisa vadede sadece `x-default` birakin (audit onerisi 1) |
 | 5 | `sources.json` (P1) | ✅ CANLIDA (https://sabinamalikova.com/sources.json) |
 | 6 | Marketing docs temizligi (Chester, MFI, pre-launch phrasing) | ⬜ Kaynak repo isi — dosya/satir listesi audit'te ("Icerik Temizligi" bolumu) |
-| 7 | Yeni post-launch OpenPR / dis kaynak duzeltmesi | ✅ Taslak hazir: `openpr-duzeltme-taslagi.md` — studio kontrolu sonrasi yayinlanir |
+| 7 | Yeni post-launch OpenPR / dis kaynak duzeltmesi | ❌ IPTAL (studio karari, 2026-07-18) — taslak arsiv olarak duruyor. Not: eski pre-launch OpenPR bulteni (Chester/MFI iceren) yayinda kalmaya devam ediyor; canlidaki llms.txt guardrails + sources.json bu riski AI tarafinda buyuk olcude dengeler |
 | 8 | Sitemap `lastmod` guncelleme | ✅ CANLIDA (49/49 URL lastmod 2026-07-18) |
 | P1 | Methodology `TechArticle` schema'sina `citation`/`isBasedOn` | ⬜ Kaynak repo isi (React/SSR schema uretimi) |
 | P2 | Outcome etiketleme kalibi ("studio post-occupancy project observations, not peer-reviewed clinical trial results") | ⬜ Icerik isi — `sources.json` icinde `outcome_classification` alani olarak sabitlendi; sayfa metinlerinde kaynak repoda uygulanmali |
@@ -68,8 +68,10 @@ dogrulandi:
 9. ✅ JSON-LD: 4/8/8/6 blok, tamami parse ediliyor
 10. ✅ Cache tutarliligi: 6 ardisik istekte x-ssr-type hep location-ankara
 
-Kalan manuel isler: GSC indeksleme talepleri (4 sehir URL'si), Google
-Business Profile (Ankara + Londra), OpenPR duzeltme bulteni.
+Kalan manuel isler durumu (2026-07-18 aksami):
+- ✅ GSC indeksleme talepleri (4 sehir URL'si) — yapildi
+- ⏳ Google Business Profile (Ankara + Londra) — sonraya birakildi
+- ❌ OpenPR duzeltme bulteni — studio karariyla iptal edildi
 
 ### 2026-07-18 (once) — eski durum (tarihce)
 
