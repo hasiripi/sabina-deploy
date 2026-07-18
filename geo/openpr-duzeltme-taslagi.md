@@ -22,6 +22,19 @@
      observations, not peer-reviewed clinical trial results") kullanilmamis.
      Gelecek bultenlerde eklenmeli.
 
+2b. **EIN dagitim raporu kontrolu (2026-07-18)** — rapor:
+   https://www.einpresswire.com/report/5aLtmgxV_x8rvp9S
+   226 benzersiz yayin linki tespit edildi. Icerik dogrulananlar:
+   - einpresswire.com ana makale: temiz (yukaridaki madde 2)
+   - natlawreview.com kopyasi: canli, Chester yok, Bilkent var,
+     sabinamalikova.com'a 3 link
+   - CDN'deki PDF kopyasi: erisilebilir (185 KB)
+   - Google News "Sabina Malikova" sorgusunda bulten indekslenmis (EIN News)
+   Geri kalan kopyalar (EIN haber agi ~87 site, einnews.com dikeyleri 23,
+   Nexstar TV siteleri ~115, MENAFN) datacenter IP'lere bot korumasi
+   uyguladigi icin bu ortamdan dogrudan acilamadi; hepsi ayni master
+   metnin otomatik kopyalari oldugundan icerik riski dusuk.
+
 3. **WorldHealth forum konusu** eski OpenPR bultenine link veriyor
    (baslik hala "to Launch"):
    https://forum.worldhealth.net/community/discussion/sabina-malikova-to-launch-longevity-by-design-methodology-at-openpr-com/
