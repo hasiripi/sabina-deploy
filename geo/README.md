@@ -35,34 +35,48 @@ Onemli baglam:
 
 | # | Madde | Durum |
 |---|---|---|
-| 1 | `ssr.php` methodology `noscript` launch tense fix (P0) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: `/methodology` hala "will be formally launched" diyor) — kaynak repodan build alip deploy edin |
-| 2 | `llms.txt` / `llms-full.txt` / `ai.txt` deprecated claims bolumu (P0) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: canli dosyalar hala `Updated: 2026-07-02`, guardrails bolumu yok) — deploy gerekli |
-| 3 | `Link` discovery header (P1) | ⚠️ Kaynak repoda uygulandi ama **canlida YOK** (18 Tem kontrolu: ne SSR ne ana sayfa `Link` header'i donduruyor) — deploy + `snippets/htaccess-geo-blok.conf` → canli `.htaccess`'e ekleyin |
+| 1 | `ssr.php` methodology `noscript` launch tense fix (P0) | ✅ CANLIDA (18 Tem deploy dogrulamasi) |
+| 2 | `llms.txt` / `llms-full.txt` / `ai.txt` deprecated claims bolumu (P0) | ✅ CANLIDA (18 Tem deploy dogrulamasi) |
+| 3 | `Link` discovery header (P1) | ✅ CANLIDA — SSR (ssr.php) + ana sayfa (.htaccess) |
 | 4 | Hreflang sadelestirme (`SeoHead.tsx:322-328`) (P1) | ⬜ Kaynak repo isi — kisa vadede sadece `x-default` birakin (audit onerisi 1) |
-| 5 | `sources.json` (P1) | ✅ Bu depoda hazir: `sources.json`. Yukledikten sonra `snippets/llms-ai-ek-satirlar.md`'deki link satirlarini manifest dosyalarina ekleyin |
+| 5 | `sources.json` (P1) | ✅ CANLIDA (https://sabinamalikova.com/sources.json) |
 | 6 | Marketing docs temizligi (Chester, MFI, pre-launch phrasing) | ⬜ Kaynak repo isi — dosya/satir listesi audit'te ("Icerik Temizligi" bolumu) |
 | 7 | Yeni post-launch OpenPR / dis kaynak duzeltmesi | ✅ Taslak hazir: `openpr-duzeltme-taslagi.md` — studio kontrolu sonrasi yayinlanir |
-| 8 | Sitemap `lastmod` guncelleme | ✅ Arac hazir: `scripts/update-sitemap-lastmod.mjs` (internetli makinede calistirin) |
+| 8 | Sitemap `lastmod` guncelleme | ✅ CANLIDA (49/49 URL lastmod 2026-07-18) |
 | P1 | Methodology `TechArticle` schema'sina `citation`/`isBasedOn` | ⬜ Kaynak repo isi (React/SSR schema uretimi) |
 | P2 | Outcome etiketleme kalibi ("studio post-occupancy project observations, not peer-reviewed clinical trial results") | ⬜ Icerik isi — `sources.json` icinde `outcome_classification` alani olarak sabitlendi; sayfa metinlerinde kaynak repoda uygulanmali |
 
-## Canli dogrulama sonuclari (2026-07-18)
+## Canli dogrulama sonuclari
 
-Ag erisimi acildiktan sonra canli site kontrol edildi. Ozet:
+### 2026-07-18 (aksam) — DEPLOY DOGRULANDI ✅
 
-- **Canli site hala 2026-07-02 deploy'unda.** Audit'in kaynak repoda uyguladigi
-  duzeltmelerin HICBIRI canliya yansimamis (madde 1-3 tablodaki ⚠️ satirlar).
-  Ilk is: kaynak repodan `npm run build` + deploy.
-- `sitemap.xml`: 49 URL'nin tamami `lastmod: 2026-07-02` — deploy sonrasi
-  `scripts/update-sitemap-lastmod.mjs` ile guncellenmeli.
-- `sources.json`: 404 (henuz yuklenmedi — bu depodaki dosya yuklenmeyi bekliyor).
-- Iyi durumda: news sayfasi dogru (2 Temmuz tarihli, gecmis zaman "launched
-  June 13, 2026"); ana sayfada Chester YOK; JSON-LD 4/8/8/6 blok ve hepsi
-  parse ediliyor; robots.txt genis AI crawler listesiyle canli; Wikidata
-  Q139913205 saglikli.
-- Not: site, `node`/undici default User-Agent'ina 403 donduruyor. Audit'teki
-  JSON-LD test komutuna tarayici User-Agent header'i eklenmeli; curl default
-  UA ile sorun yok.
+`sabinamalikova-archive` main (c3ee2f9) build'i canliya alindi ve 10 baslikta
+dogrulandi:
+
+1. ✅ Methodology: "was formally launched" (1), "will be formally" (0)
+2. ✅ SSR sayfalarinda `Link` discovery header canli (llms/llms-full/ai-policy)
+3. ✅ Sehir sayfalari: noscript=0, `ssr-content` gorunur, anahtar kelimeli
+   anchor'lar cikiyor; Istanbul/London/Frankfurt yeni title'lar + klinik
+   intent koprusu canli
+4. ✅ Ana sayfa: `seo-static-links` blogu (13 longevity linki) + rel=llms
+   discovery + `.htaccess` Link header'i canli
+5. ✅ llms.txt guardrails; llms-full.txt & ai.txt Updated: 2026-07-18;
+   ai.txt 4 Deprecated-Claim satiri
+6. ✅ sources.json canli ve gecerli JSON (updated: 2026-07-18)
+7. ✅ sitemap.xml: 49/49 lastmod 2026-07-18
+8. ✅ www → non-www 301 (dogru hedefle)
+9. ✅ JSON-LD: 4/8/8/6 blok, tamami parse ediliyor
+10. ✅ Cache tutarliligi: 6 ardisik istekte x-ssr-type hep location-ankara
+
+Kalan manuel isler: GSC indeksleme talepleri (4 sehir URL'si), Google
+Business Profile (Ankara + Londra), OpenPR duzeltme bulteni.
+
+### 2026-07-18 (once) — eski durum (tarihce)
+
+- Canli site 2026-07-02 deploy'undaydi; audit duzeltmeleri yansimamisti.
+- `sources.json` 404'tu; sitemap lastmod'lar 2026-07-02'ydi.
+- Not: site, `node`/undici default User-Agent'ina 403 donduruyor. JSON-LD
+  testlerinde tarayici User-Agent header'i kullanin; curl default UA sorunsuz.
 
 ## Uygulama sirasi (hosting tarafi)
 
